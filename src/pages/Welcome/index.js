@@ -1,16 +1,18 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import * as Animatable from "react-native-animatable";
 
 export function Welcome() {
   return (
     <View style={styles.container}>
       <View style={styles.containerLogo}>
-        <Image
+        <Animatable.Image
+        animation="flipInY"
           source={require("../../assets/logo.jpg")}
           style={{ width: "50%", borderRadius: 100 }}
           resizeMode="contain"
         />
       </View>
-      <View style={styles.containerForm}>
+      <Animatable.View animation="fadeInUp" delay={600} style={styles.containerForm}>
         <Text style={styles.title}>
           Monitore, organize seus gastos de qualquer lugar!
         </Text>
@@ -18,7 +20,7 @@ export function Welcome() {
         <TouchableOpacity style={styles.btn}>
           <Text style={styles.btnText}>Acessar</Text>
         </TouchableOpacity>
-      </View>
+      </Animatable.View>
     </View>
   );
 }
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   text: {
+ 
     color: "#a1a1a1",
   },
   btn: {
